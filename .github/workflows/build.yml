@@ -11,10 +11,12 @@ jobs:
       - run: npm --version
         name: Check NPM version
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
         name: Checkout code from github
       - run: npm install
         name: Install NPM packages
       - run: node app.js
         name: Run node application
-      - run: $(git diff --name-only --diff-filter=A HEAD@{1} HEAD)
+      - run: git diff --name-only -r HEAD^1 HEAD
         name: Folder name wich has changes
