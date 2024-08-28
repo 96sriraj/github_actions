@@ -1,11 +1,18 @@
+name: Run and Test Github actions
 on: push
 jobs:
-  first-job:
+  build-node:
+    name: Build and run Node project
     runs-on: macOS-latest
     # container: node:18.x # use to this to run on specific node version by specifying the exact version as 18.0.6
     steps:
       - run: node --version
+        name: Check Node version
       - run: npm --version
+        name: Check NPM version
       - uses: actions/checkout@v3
+        name: Checkout code from github
       - run: npm install
+        name: Install NPM packages
       - run: node app.js
+        name: Run node application
