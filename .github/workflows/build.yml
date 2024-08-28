@@ -18,5 +18,5 @@ jobs:
         name: Install NPM packages
       - run: node app.js
         name: Run node application
-      - run: git diff --name-only --diff-filter=A HEAD^1 HEAD
+      - run: git diff --name-only --diff-filter=ACMRT HEAD^1 HEAD
         name: Folder name wich has changes
