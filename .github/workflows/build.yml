@@ -16,3 +16,4 @@ jobs:
         name: Install NPM packages
       - run: node app.js
         name: Run node application
+      -  run: changed_folders=$(git diff --name-only --diff-filter=A HEAD@{1} HEAD | awk -F '/' '{print $1}')
